@@ -1,1 +1,2 @@
 # To run both the main.go files, we can just use the command "go run main.go"
+# The regex pattern ^(4|5|6)\d{3}(-?\d{4}){3}$ is used to match valid credit card numbers according to the given criteria. The approach of replacing hyphens with an empty string and then checking for consecutive repeated digits ensures compliance with the specified rules. These techniques effectively validate the credit card numbers in a concise and efficient manner.
