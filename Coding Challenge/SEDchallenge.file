@@ -1,0 +1,43 @@
+To architect a scalable and secure static web application in AWS as per your requirements, we'll use a combination of AWS services like EC2 (Elastic Compute Cloud) for hosting, AWS Certificate Manager (ACM) for SSL certificates, and AWS Elastic Load Balancer (ELB) for routing traffic. We'll also use a configuration management tool like Ansible to automate the setup and configuration of our web server. Here's a step-by-step guide:
+
+Step 1: Set Up AWS Infrastructure
+Create an EC2 Instance:
+Launch an EC2 instance (Amazon Linux or Ubuntu) in your desired AWS region.
+Ensure the instance is launched within a private subnet to enhance security.
+Configure Security Groups:
+Set up a security group for the EC2 instance that only allows inbound traffic on ports 80 (HTTP) and 443 (HTTPS) from the ELB (Elastic Load Balancer).
+Set Up an Elastic Load Balancer (ELB):
+Create an Application Load Balancer (ALB) or Network Load Balancer (NLB) depending on your requirements.
+Configure listeners to forward HTTP (port 80) traffic to HTTPS (port 443).
+Step 2: Deploy Web Server
+Use a Configuration Management Tool (Ansible):
+Write Ansible playbooks to automate the installation and configuration of Nginx (or Apache) web server.
+Use Ansible to deploy the sample HTML page (index.html) to the web server.
+Step 3: Secure the Application
+SSL/TLS Certificate:
+Request a SSL/TLS certificate from AWS ACM for your domain (or use a self-signed certificate for testing purposes).
+Configure the ELB to use this certificate for HTTPS termination.
+Redirect HTTP to HTTPS:
+Use Nginx configuration (via Ansible) to redirect all HTTP requests to HTTPS.
+Step 4: Automated Testing
+Write Tests:
+Develop automated tests (e.g: using Ansible, Selenium, or other tools) to validate that the server is correctly configured.
+Tests should cover HTTP to HTTPS redirection, SSL certificate validity, and correct serving of the HTML page.
+Step 5: Git Repository
+Create Git Repository:
+Set up a Git repository (GitHub) to store your Ansible playbooks, test scripts, and any other related code.
+Monitoring and Scaling
+Monitoring:
+Use AWS CloudWatch to monitor EC2 instances, ELB performance, and other relevant metrics.
+Implement logging (e.g: using CloudWatch Logs) to track server and application logs.
+Scaling:
+Configure Auto Scaling groups to automatically add or remove EC2 instances based on traffic patterns.
+Use ELB to distribute traffic across multiple instances for scalability and fault tolerance.
+Demo and Presentation
+During the demo and presentation:
+
+Walk through your Ansible playbooks to explain how the infrastructure is provisioned and configured.
+Discuss your thought process behind security measures (e.g., SSL/TLS, security groups).
+Showcase the automated tests and explain how they validate the correctness of the server configuration.
+Show the Git repository and highlight the code structure and organization.
+By following these steps, you'll have a scalable and secure static web application deployed in AWS, automated with configuration management tools and backed by testing and monitoring processes.
